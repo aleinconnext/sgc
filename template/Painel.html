@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="pt-br" data-footer="true">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <title>Acorn | Gestão de Concessões</title>
+    <meta name="description" content="User verification, registration and recovery pages." />
+    <!-- Favicon Tags Start -->
+    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="img/favicon/apple-touch-icon-57x57.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="img/favicon/apple-touch-icon-114x114.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="img/favicon/apple-touch-icon-72x72.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="img/favicon/apple-touch-icon-144x144.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="60x60" href="img/favicon/apple-touch-icon-60x60.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="img/favicon/apple-touch-icon-120x120.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="76x76" href="img/favicon/apple-touch-icon-76x76.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="img/favicon/apple-touch-icon-152x152.png" />
+    <link rel="icon" type="image/png" href="img/favicon/favicon-196x196.png" sizes="196x196" />
+    <link rel="icon" type="image/png" href="img/favicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/png" href="img/favicon/favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="img/favicon/favicon-16x16.png" sizes="16x16" />
+    <link rel="icon" type="image/png" href="img/favicon/favicon-128.png" sizes="128x128" />
+    <meta name="application-name" content="&nbsp;" />
+    <meta name="msapplication-TileColor" content="#FFFFFF" />
+    <meta name="msapplication-TileImage" content="img/favicon/mstile-144x144.png" />
+    <meta name="msapplication-square70x70logo" content="img/favicon/mstile-70x70.png" />
+    <meta name="msapplication-square150x150logo" content="img/favicon/mstile-150x150.png" />
+    <meta name="msapplication-wide310x150logo" content="img/favicon/mstile-310x150.png" />
+    <meta name="msapplication-square310x310logo" content="img/favicon/mstile-310x310.png" />
+    <!-- Favicon Tags End -->
+    <!-- Font Tags Start -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="font/CS-Interface/style.css" />
+    <!-- Font Tags End -->
+    <!-- Vendor Styles Start -->
+    <link rel="stylesheet" href="css/vendor/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/vendor/OverlayScrollbars.min.css" />
+
+    <!-- Vendor Styles End -->
+    <!-- Template Base Styles Start -->
+    <link rel="stylesheet" href="css/styles.css" />
+    <!-- Template Base Styles End -->
+
+    <link rel="stylesheet" href="css/main.css" />
+    <script src="js/base/loader.js"></script>
+  </head>
+
+  <body>
+    <div id="root">
+      <div id="nav" class="nav-container d-flex">
+        <div class="nav-content d-flex">
+          <div class="logo position-relative">
+            <a href="#">
+              <div class="img"></div>
+            </a>
+          </div>
+          
+		  
+		  <div class="user-container d-flex">
+            <a href="#" class="d-flex user position-relative" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <img class="profile" alt="profile" src="img/profile/profile-9.jpg" />
+              <div class="name">Andreza Reis</div>
+            </a>
+            <div class="dropdown-menu dropdown-menu-end user-menu wide">
+              <div class="row mb-3 ms-0 me-0">
+                <div class="col-12 ps-1 mb-2">
+                  <div class="text-extra-small text-primary">SUA CONTA</div>
+                </div>
+                <div class="col-12 ps-1 pe-1">
+                  <ul class="list-unstyled">
+                    <li>
+                      <a href="#">Perfil do Usuário</a>
+                    </li>
+                    <li>
+                      <a href="#">Segurança</a>
+                    </li>
+                    
+                  </ul>
+                </div>
+                
+              </div>
+              
+              <div class="row mb-1 ms-0 me-0">
+                <div class="col-12 p-1 mb-3 pt-3">
+                  <div class="separator-light"></div>
+                </div>
+                <div class="col-6 ps-1 pe-1">
+                  <ul class="list-unstyled">
+                    <li>
+                      <a href="#">
+                        <i data-cs-icon="help" class="me-2" data-cs-size="17"></i>
+                        <span class="align-middle">Ajuda</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        <i data-cs-icon="document-full" class="me-2" data-cs-size="17"></i>
+                        <span class="align-middle">Docs</span>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="col-6 pe-1 ps-1">
+                  <ul class="list-unstyled">
+                    <li>
+                      <a href="#">
+                        <i data-cs-icon="gear" class="me-2" data-cs-size="17"></i>
+                        <span class="align-middle">Config</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        <i data-cs-icon="logout" class="me-2" data-cs-size="17"></i>
+                        <span class="align-middle">Sair</span>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+		  <ul class="list-unstyled list-inline text-center menu-icons">
+            <li class="list-inline-item">
+              <a href="#" data-bs-toggle="modal" data-bs-target="#searchPagesModal">
+                <i data-cs-icon="search" data-cs-size="18"></i>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="#" id="pinButton" class="pin-button">
+                <i data-cs-icon="lock-on" class="unpin" data-cs-size="18"></i>
+                <i data-cs-icon="lock-off" class="pin" data-cs-size="18"></i>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="#" id="colorButton">
+                <i data-cs-icon="light-on" class="light" data-cs-size="18"></i>
+                <i data-cs-icon="light-off" class="dark" data-cs-size="18"></i>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="#" data-bs-toggle="dropdown" data-bs-target="#notifications" aria-haspopup="true" aria-expanded="false" class="notification-button">
+                <div class="position-relative d-inline-flex">
+                  <i data-cs-icon="bell" data-cs-size="18"></i>
+                  <span class="position-absolute notification-dot rounded-xl"></span>
+                </div>
+              </a>
+              <div class="dropdown-menu dropdown-menu-end wide notification-dropdown scroll-out" id="notifications">
+                <div class="scroll">
+                  <ul class="list-unstyled border-last-none">
+                    <li class="mb-3 pb-3 border-bottom border-separator-light d-flex">
+                      <img src="img/profile/profile-1.jpg" class="me-3 sw-4 sh-4 rounded-xl align-self-center" alt="..." />
+                      <div class="align-self-center">
+                        <a href="#">Joisse Kaycee just sent a new comment!</a>
+                      </div>
+                    </li>
+                    <li class="mb-3 pb-3 border-bottom border-separator-light d-flex">
+                      <img src="img/profile/profile-2.jpg" class="me-3 sw-4 sh-4 rounded-xl align-self-center" alt="..." />
+                      <div class="align-self-center">
+                        <a href="#">New order received! It is total $147,20.</a>
+                      </div>
+                    </li>
+                    <li class="mb-3 pb-3 border-bottom border-separator-light d-flex">
+                      <img src="img/profile/profile-3.jpg" class="me-3 sw-4 sh-4 rounded-xl align-self-center" alt="..." />
+                      <div class="align-self-center">
+                        <a href="#">3 items just added to wish list by a user!</a>
+                      </div>
+                    </li>
+                    <li class="pb-3 pb-3 border-bottom border-separator-light d-flex">
+                      <img src="img/profile/profile-6.jpg" class="me-3 sw-4 sh-4 rounded-xl align-self-center" alt="..." />
+                      <div class="align-self-center">
+                        <a href="#">Kirby Peters just sent a new message!</a>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </li>
+          </ul>
+          
+		  <div class="menu-container flex-grow-1">
+            <ul id="menu" class="menu">
+              <li>
+                <a href="#" data-href="Dashboards.html">
+                  <i data-cs-icon="home" class="icon" data-cs-size="18"></i>
+                  <span class="label">Dashboards</span>
+                </a>
+              </li>
+              <li>
+                <a href="#apps" data-href="Apps.html">
+                  <i data-cs-icon="screen" class="icon" data-cs-size="18"></i>
+                  <span class="label">Módulos</span>
+                </a>
+                <ul id="apps">
+                  <li>
+                    <a href="#">
+                      <span class="label">Gestão de Florestas Públicas</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <span class="label">Gestão de Licitações</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <span class="label">Gestão de Concessionários</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <span class="label">Gestão de Contratos</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <span class="label">Central de Comunicação</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <span class="label">Central do Administrador</span>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          <div class="mobile-buttons-container">
+            <a href="#" id="scrollSpyButton" class="spy-button" data-bs-toggle="dropdown">
+              <i data-cs-icon="menu-dropdown"></i>
+            </a>
+            <div class="dropdown-menu dropdown-menu-end" id="scrollSpyDropdown"></div>
+            <a href="#" id="mobileMenuButton" class="menu-button">
+              <i data-cs-icon="menu"></i>
+            </a>
+          </div>
+        </div>
+        <div class="nav-shadow"></div>
+      </div>
+
+      <main>
+        <div class="container">
+          <div class="page-title-container">
+            <div class="row">
+              <!-- Title Start -->
+              <div class="col-12 col-md-7">
+                <h1 class="mb-0 pb-0 display-4" id="title">Módulos</h1>
+                <nav class="breadcrumb-container d-inline-block" aria-label="breadcrumb">
+                  <ul class="breadcrumb pt-0">
+                    <li class="breadcrumb-item"><a href="Dashboards.Default.html">Home</a></li>
+                    <li class="breadcrumb-item"><a href="Pages.html">Módulos</a></li>
+                  </ul>
+                </nav>
+              </div>
+            </div>
+          </div>
+          <div class="card mb-2">
+            <div class="card-body h-100">Painel de módulos liberados no sistema.</div>
+          </div>
+          <div class="row row-cols-1 row-cols-sm-2 row-cols-xl-3 g-2">
+            <div class="col">
+              <div class="card h-100">
+                <div class="card-body row gx-4">
+                  <div class="col-auto">
+                    <i data-cs-icon="tree" class="text-primary"></i>
+                  </div>
+                  <div class="col">
+                    <a href="Pages.Authentication.Login.html" class="heading stretched-link d-block">Gestão de Florestas Públicas</a>
+                    <div class="text-muted">Login form with email and password.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card h-100">
+                <div class="card-body row gx-4">
+                  <div class="col-auto">
+                    <i data-cs-icon="content" class="text-primary"></i>
+                  </div>
+                  <div class="col">
+                    <a href="Pages.Authentication.Register.html" class="heading stretched-link d-block">Gestão de Licitações</a>
+                    <div class="text-muted">Register form with email, password and password confirmation.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card h-100">
+                <div class="card-body row gx-4">
+                  <div class="col-auto">
+                    <i data-cs-icon="key" class="text-primary"></i>
+                  </div>
+                  <div class="col">
+                    <a href="Pages.Authentication.ForgotPassword.html" class="heading stretched-link d-block">Gestão de Concessionários</a>
+                    <div class="text-muted">Password recovery form with an email field.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card h-100">
+                <div class="card-body row gx-4">
+                  <div class="col-auto">
+                    <i data-cs-icon="shield-check" class="text-primary"></i>
+                  </div>
+                  <div class="col">
+                    <a href="Pages.Authentication.ResetPassword.html" class="heading stretched-link d-block">Gestão de Contratos</a>
+                    <div class="text-muted">Password reset form with password and password confirmation.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card h-100">
+                <div class="card-body row gx-4">
+                  <div class="col-auto">
+                    <i data-cs-icon="support" class="text-primary"></i>
+                  </div>
+                  <div class="col">
+                    <a href="Pages.Authentication.ResetPassword.html" class="heading stretched-link d-block">Central de Comunicação</a>
+                    <div class="text-muted">Password reset form with password and password confirmation.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card h-100">
+                <div class="card-body row gx-4">
+                  <div class="col-auto">
+                    <i data-cs-icon="suitcase" class="text-primary"></i>
+                  </div>
+                  <div class="col">
+                    <a href="Pages.Authentication.ResetPassword.html" class="heading stretched-link d-block">Central do Administrador</a>
+                    <div class="text-muted">Password reset form with password and password confirmation.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+      <footer>
+        <div class="footer-content">
+          <div class="container">
+            <div class="row">
+              <div class="col-12 col-sm-6">
+                <p class="mb-0 text-muted text-medium">Sistema de Gestão de Concessões - IDEFLOR BIO</p>
+              </div>
+              <div class="col-sm-6 d-none d-sm-block">
+                <ul class="breadcrumb pt-0 pe-0 mb-0 float-end">
+                  <li class="breadcrumb-item mb-0 text-medium"><a href="#" class="btn-link">Desenvolvimento: Educa Tecnologia</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    
+
+    <!-- Search Modal Start -->
+    <div class="modal fade modal-under-nav modal-search modal-close-out" id="searchPagesModal" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header border-0 p-0">
+            <button type="button" class="btn-close btn btn-icon btn-icon-only btn-foreground" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body ps-5 pe-5 pb-0 border-0">
+            <input id="searchPagesInput" class="form-control form-control-xl borderless ps-0 pe-0 mb-1 auto-complete" type="text" autocomplete="off" />
+          </div>
+          <div class="modal-footer border-top justify-content-start ps-5 pe-5 pb-3 pt-3 border-0">
+            <span class="text-alternate d-inline-block m-0 me-3">
+              <i data-cs-icon="arrow-bottom" data-cs-size="15" class="text-alternate align-middle me-1"></i>
+              <span class="align-middle text-medium">Navigate</span>
+            </span>
+            <span class="text-alternate d-inline-block m-0 me-3">
+              <i data-cs-icon="arrow-bottom-left" data-cs-size="15" class="text-alternate align-middle me-1"></i>
+              <span class="align-middle text-medium">Select</span>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Search Modal End -->
+
+    <!-- Vendor Scripts Start -->
+    <script src="js/vendor/jquery-3.5.1.min.js"></script>
+    <script src="js/vendor/bootstrap.bundle.min.js"></script>
+    <script src="js/vendor/OverlayScrollbars.min.js"></script>
+    <script src="js/vendor/autoComplete.min.js"></script>
+    <script src="js/vendor/clamp.min.js"></script>
+
+    <!-- Vendor Scripts End -->
+
+    <!-- Template Base Scripts Start -->
+    <script src="font/CS-Line/csicons.min.js"></script>
+    <script src="js/base/helpers.js"></script>
+    <script src="js/base/globals.js"></script>
+    <script src="js/base/nav.js"></script>
+    <script src="js/base/search.js"></script>
+    <script src="js/base/settings.js"></script>
+    <script src="js/base/init.js"></script>
+    <!-- Template Base Scripts End -->
+    <!-- Page Specific Scripts Start -->
+
+    <script src="js/common.js"></script>
+    <script src="js/scripts.js"></script>
+    <!-- Page Specific Scripts End -->
+  </body>
+</html>
