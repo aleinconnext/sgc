@@ -90,9 +90,7 @@ function Login() {
             <div className="sw-lg-70 min-h-100 bg-foreground d-flex justify-content-center align-items-center shadow-deep py-5 full-page-content-right-border">
               <div className="sw-lg-50 px-5">
                 <div className="sh-11">
-                  <a href="index.html">
                     <div className="logo-sgc"></div>
-                  </a>
                 </div>
                 <div className="mb-5">
                   <h2 className="cta-1 mb-0 text-primary">Bem-vindo(a),</h2>
