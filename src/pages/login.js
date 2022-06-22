@@ -4,7 +4,7 @@ import Swal from 'sweetalert2';
 import PulseLoader from "react-spinners/PulseLoader";
 import { FiUser, FiUnlock } from "react-icons/fi";
 import { useApp } from '../context/AppContext';
-import  logins from '../data/dados';
+import  { logins } from '../data/dados';
 
 const initialvalue = {
     cpf : '',

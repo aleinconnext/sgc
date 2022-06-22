@@ -9,4 +9,19 @@ const logins = [
     }
 ]
 
-export default logins;
+const rsflorestas = [
+    {
+        id: 1,
+        nome: "Conjunto Glebas Manamuru Arapiuns",
+        umfsativas:5,
+        areatotal: 127477.48,
+    },
+    {
+        id: 2,
+        nome: "Floresta Estadual do Paru",
+        umfsativas:8,
+        areatotal: 3527593.51,
+    }
+]
+
+export { logins, rsflorestas };

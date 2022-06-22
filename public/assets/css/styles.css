@@ -361,7 +361,12 @@ Table of Contents
 
 .sw-80 {
   width: 40rem !important; }
-
+  
+.p-5 {
+  padding-left: 5px !important; 
+  padding-right: 5px !important; 
+}
+  
 @media (min-width: 576px) {
   .sh-sm-0 {
     height: 0 !important; } }

@@ -1,23 +1,26 @@
-import React, { useEffect } from 'react';
-import { 
-  BiHive, 
+import React, { useEffect } from "react";
+import {
+  BiHive,
   BiLayer,
-  BiBuildings, 
-  BiCctv, 
-  BiCoinStack, 
-  BiNote, 
-  BiReceipt, 
-  BiDirections, 
+  BiBuildings,
+  BiCctv,
+  BiCoinStack,
+  BiNote,
+  BiReceipt,
+  BiDirections,
   BiChat,
   BiUserPlus,
   BiDesktop,
-  BiChip } from "react-icons/bi";
-import { useApp } from '../context/AppContext';
+  BiChip,
+} from "react-icons/bi";
+import Menu from "../componentes/menu";
+import { Link } from "react-router-dom";
+import { useApp } from "../context/AppContext";
 
 function Dashboard() {
-  const { modoescuro, setModoescuro, user, setUser, msg, setMsg  } = useApp();
+  const { modoescuro, setModoescuro, user, setUser, msg, setMsg } = useApp();
 
-  function dadosLogin(){
+  function dadosLogin() {
     setUser({
       logado: true,
       nome: "Gabryella Silva Gonçalves",
@@ -25,7 +28,7 @@ function Dashboard() {
     setMsg("você está logado!");
   }
 
-  function logout(){
+  function logout() {
     setUser({
       logado: false,
       nome: "",
@@ -35,7 +38,7 @@ function Dashboard() {
   }
 
   useEffect(() => {
-    <script src="%PUBLIC_URL%/assets/font/CS-Line/csicons.min.js"></script>
+    <script src="%PUBLIC_URL%/assets/font/CS-Line/csicons.min.js"></script>;
     dadosLogin();
     if (user.logado === false) {
       //window.location.href = "/";
@@ -43,218 +46,58 @@ function Dashboard() {
       dadosLogin();
     }
   }, []);
-  
+
   return (
     <div id="root">
-      <div id="nav" class="nav-container d-flex">
-        <div class="nav-content d-flex">
-          <div class="logo position-relative">
-            <a href="#">
-              <div class="img"></div>
-            </a>
-          </div>
-          
-		  
-		  <div class="user-container d-flex">
-            <a href="#" class="d-flex user position-relative" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <img class="profile" alt="profile" src={require('../assets/img/profile/profile-9.jpg')} />
-              <div class="name">{user.nome}</div>
-            </a>
-            <div class="dropdown-menu dropdown-menu-end user-menu wide">
-              <div class="row mb-3 ms-0 me-0">
-                <div class="col-12 ps-1 mb-2">
-                  <div class="text-extra-small text-primary">SUA CONTA</div>
-                </div>
-                <div class="col-12 ps-1 pe-1">
-                  <ul class="list-unstyled">
-                    <li>
-                      <a href="#">Perfil do Usuário</a>
-                    </li>
-                    <li>
-                      <a href="#">Segurança</a>
-                    </li>
-                    
-                  </ul>
-                </div>
-                
-              </div>
-              
-              <div class="row mb-1 ms-0 me-0">
-                <div class="col-12 p-1 mb-3 pt-3">
-                  <div class="separator-light"></div>
-                </div>
-                <div class="col-6 ps-1 pe-1">
-                  <ul class="list-unstyled">
-                    <li>
-                      <a href="#">
-                        <i data-cs-icon="help" class="me-2" data-cs-size="17"></i>
-                        <span class="align-middle">Ajuda</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        <i data-cs-icon="document-full" class="me-2" data-cs-size="17"></i>
-                        <span class="align-middle">Docs</span>
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-                <div class="col-6 pe-1 ps-1">
-                  <ul class="list-unstyled">
-                    <li>
-                      <a href="#">
-                        <i data-cs-icon="gear" class="me-2" data-cs-size="17"></i>
-                        <span class="align-middle">Config</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a style={{ cursor: 'pointer' }} onClick={logout}>
-                        <i data-cs-icon="logout" class="me-2" data-cs-size="17"></i>
-                        <span class="align-middle">Sair</span>
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-          
-		  <ul class="list-unstyled list-inline text-center menu-icons">
-            <li class="list-inline-item">
-              <a href="#" id="colorButton">
-                <i data-cs-icon="light-on" class="light" data-cs-size="18"></i>
-                <i data-cs-icon="light-off" class="dark" data-cs-size="18"></i>
-              </a>
-            </li>
-            <li class="list-inline-item">
-              <a href="#" data-bs-toggle="dropdown" data-bs-target="#notifications" aria-haspopup="true" aria-expanded="false" class="notification-button">
-                <div class="position-relative d-inline-flex">
-                  <i data-cs-icon="bell" data-cs-size="18"></i>
-                  <span class="position-absolute notification-dot rounded-xl"></span>
-                </div>
-              </a>
-              <div class="dropdown-menu dropdown-menu-end wide notification-dropdown scroll-out" id="notifications">
-                <div class="scroll">
-                  <ul class="list-unstyled border-last-none">
-                    <li class="mb-3 pb-3 border-bottom border-separator-light d-flex">
-                      <img src="img/profile/profile-1.jpg" class="me-3 sw-4 sh-4 rounded-xl align-self-center" alt="..." />
-                      <div class="align-self-center">
-                        <a href="#">Joisse Kaycee just sesnt a new comment!</a>
-                      </div>
-                    </li>
-                    <li class="mb-3 pb-3 border-bottom border-separator-light d-flex">
-                      <img src="img/profile/profile-2.jpg" class="me-3 sw-4 sh-4 rounded-xl align-self-center" alt="..." />
-                      <div class="align-self-center">
-                        <a href="#">New order received! It is total $147,20.</a>
-                      </div>
-                    </li>
-                    <li class="mb-3 pb-3 border-bottom border-separator-light d-flex">
-                      <img src="img/profile/profile-3.jpg" class="me-3 sw-4 sh-4 rounded-xl align-self-center" alt="..." />
-                      <div class="align-self-center">
-                        <a href="#">3 items just added to wish list by a user!</a>
-                      </div>
-                    </li>
-                    <li class="pb-3 pb-3 border-bottom border-separator-light d-flex">
-                      <img src="img/profile/profile-6.jpg" class="me-3 sw-4 sh-4 rounded-xl align-self-center" alt="..." />
-                      <div class="align-self-center">
-                        <a href="#">Kirby Peters just sent a new message!</a>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </li>
-          </ul>
-          
-		  <div class="menu-container flex-grow-1">
-            <ul id="menu" class="menu">
-              <li>
-                <a href="#" data-href="Dashboards.html">
-                  <BiChip color="#fff" size={20} class="icon"/>
-                  <span class="label">Dashboards</span>
-                </a>
-              </li>
-              <li>
-                <a href="#apps" data-href="Apps.html">
-                  <BiDesktop color="#fff" size={20} class="icon"/>
-                  <span class="label">Módulos</span>
-                </a>
-                <ul id="apps">
-                  <li>
-                    <a href="#">
-                      <span class="label">Gestão de Florestas Públicas</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <span class="label">Gestão de Licitações</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <span class="label">Gestão de Concessionários</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <span class="label">Gestão de Contratos</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <span class="label">Central de Comunicação</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <span class="label">Central do Administrador</span>
-                    </a>
-                  </li>
-                </ul>
-              </li>
-            </ul>
-          </div>
-          <div class="mobile-buttons-container">
-            <a href="#" id="scrollSpyButton" class="spy-button" data-bs-toggle="dropdown">
-              <i data-cs-icon="menu-dropdown"></i>
-            </a>
-            <div class="dropdown-menu dropdown-menu-end" id="scrollSpyDropdown"></div>
-            <a href="#" id="mobileMenuButton" class="menu-button">
-              <i data-cs-icon="menu"></i>
-            </a>
-          </div>
-        </div>
-        <div class="nav-shadow"></div>
-      </div>
-
+      <Menu />
       <main>
         <div class="container">
           <div class="page-title-container">
             <div class="row">
               <div class="col-12 col-md-7">
-                <h1 class="mb-0 pb-0 display-4" id="title">Módulos</h1>
-                <nav class="breadcrumb-container d-inline-block" aria-label="breadcrumb">
+                <h1 class="mb-0 pb-0 display-4" id="title">
+                  Módulos
+                </h1>
+                <nav
+                  class="breadcrumb-container d-inline-block"
+                  aria-label="breadcrumb"
+                >
                   <ul class="breadcrumb pt-0">
-                    <li class="breadcrumb-item"><a href="Dashboards.Default.html">Home</a></li>
-                    <li class="breadcrumb-item"><a href="Pages.html">Módulos</a></li>
+                    <li class="breadcrumb-item">
+                      <a href="Dashboards.Default.html">Home</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                      <a href="Pages.html">Módulos</a>
+                    </li>
                   </ul>
                 </nav>
               </div>
             </div>
           </div>
           <div class="card mb-2">
-            <div class="card-body min-h-100">Painel de módulos liberados no sistema.</div>
+            <div class="card-body min-h-100">
+              Painel de módulos liberados no sistema.
+            </div>
           </div>
           <div class="row row-cols-1 row-cols-sm-2 row-cols-xl-3 g-2">
             <div class="col">
               <div class="card min-h-100">
                 <div class="card-body row gx-4">
                   <div class="col-auto">
-                    <BiHive color="#24af5c" size={25}/>
+                    <BiHive color="#24af5c" size={25} />
                   </div>
                   <div class="col">
-                    <a href="Pages.Authentication.Login.html" class="heading stretched-link d-block">Gestão de Florestas Públicas</a>
-                    <div class="text-muted">Login form with email and password.</div>
+                    <a
+                      // to="/gflorestas"
+                      style={{cursor: "pointer"}}
+                      onClick={() => window.location.href = "/gflorestas"}
+                      class="heading stretched-a d-block"
+                    >
+                      Gestão de Florestas Públicas
+                    </a>
+                    <div class="text-muted">
+                      Login form with email and password.
+                    </div>
                   </div>
                 </div>
               </div>
@@ -263,11 +106,19 @@ function Dashboard() {
               <div class="card min-h-100">
                 <div class="card-body row gx-4">
                   <div class="col-auto">
-                    <BiLayer color="#24af5c" size={25}/>
+                    <BiLayer color="#24af5c" size={25} />
                   </div>
                   <div class="col">
-                    <a href="Pages.Authentication.Login.html" class="heading stretched-link d-block">Gestão de Licitações</a>
-                    <div class="text-muted">Register form with email, password and password confirmation.</div>
+                    <a
+                      href="Pages.Authentication.Login.html"
+                      class="heading stretched-link d-block"
+                    >
+                      Gestão de Licitações
+                    </a>
+                    <div class="text-muted">
+                      Register form with email, password and password
+                      confirmation.
+                    </div>
                   </div>
                 </div>
               </div>
@@ -276,11 +127,18 @@ function Dashboard() {
               <div class="card min-h-100">
                 <div class="card-body row gx-4">
                   <div class="col-auto">
-                    <BiBuildings color="#24af5c" size={25}/>
+                    <BiBuildings color="#24af5c" size={25} />
                   </div>
                   <div class="col">
-                    <a href="Pages.Authentication.ForgotPassword.html" class="heading stretched-link d-block">Gestão de Concessionários</a>
-                    <div class="text-muted">Password recovery form with an email field.</div>
+                    <a
+                      href="Pages.Authentication.ForgotPassword.html"
+                      class="heading stretched-link d-block"
+                    >
+                      Gestão de Concessionários
+                    </a>
+                    <div class="text-muted">
+                      Password recovery form with an email field.
+                    </div>
                   </div>
                 </div>
               </div>
@@ -289,11 +147,19 @@ function Dashboard() {
               <div class="card min-h-100">
                 <div class="card-body row gx-4">
                   <div class="col-auto">
-                    <BiCctv color="#24af5c" size={25}/>
+                    <BiCctv color="#24af5c" size={25} />
                   </div>
                   <div class="col">
-                    <a href="Pages.Authentication.ResetPassword.html" class="heading stretched-link d-block">Monitoramento de Contratos</a>
-                    <div class="text-muted">Password reset form with password and password confirmation.</div>
+                    <a
+                      href="Pages.Authentication.ResetPassword.html"
+                      class="heading stretched-link d-block"
+                    >
+                      Monitoramento de Contratos
+                    </a>
+                    <div class="text-muted">
+                      Password reset form with password and password
+                      confirmation.
+                    </div>
                   </div>
                 </div>
               </div>
@@ -302,11 +168,19 @@ function Dashboard() {
               <div class="card min-h-100">
                 <div class="card-body row gx-4">
                   <div class="col-auto">
-                    <BiCoinStack color="#24af5c" size={25}/>
+                    <BiCoinStack color="#24af5c" size={25} />
                   </div>
                   <div class="col">
-                    <a href="Pages.Authentication.ResetPassword.html" class="heading stretched-link d-block">Arrecadação Consolidada</a>
-                    <div class="text-muted">Password reset form with password and password confirmation.</div>
+                    <a
+                      href="Pages.Authentication.ResetPassword.html"
+                      class="heading stretched-link d-block"
+                    >
+                      Arrecadação Consolidada
+                    </a>
+                    <div class="text-muted">
+                      Password reset form with password and password
+                      confirmation.
+                    </div>
                   </div>
                 </div>
               </div>
@@ -315,11 +189,19 @@ function Dashboard() {
               <div class="card min-h-100">
                 <div class="card-body row gx-4">
                   <div class="col-auto">
-                    <BiNote color="#24af5c" size={25}/>
+                    <BiNote color="#24af5c" size={25} />
                   </div>
                   <div class="col">
-                    <a href="Pages.Authentication.ResetPassword.html" class="heading stretched-link d-block">Relatórios</a>
-                    <div class="text-muted">Password reset form with password and password confirmation.</div>
+                    <a
+                      href="Pages.Authentication.ResetPassword.html"
+                      class="heading stretched-link d-block"
+                    >
+                      Relatórios
+                    </a>
+                    <div class="text-muted">
+                      Password reset form with password and password
+                      confirmation.
+                    </div>
                   </div>
                 </div>
               </div>
@@ -328,11 +210,19 @@ function Dashboard() {
               <div class="card min-h-100">
                 <div class="card-body row gx-4">
                   <div class="col-auto">
-                    <BiReceipt color="#24af5c" size={25}/>
+                    <BiReceipt color="#24af5c" size={25} />
                   </div>
                   <div class="col">
-                    <a href="Pages.Authentication.ResetPassword.html" class="heading stretched-link d-block">Gestão de Contratos</a>
-                    <div class="text-muted">Password reset form with password and password confirmation.</div>
+                    <a
+                      href="Pages.Authentication.ResetPassword.html"
+                      class="heading stretched-link d-block"
+                    >
+                      Gestão de Contratos
+                    </a>
+                    <div class="text-muted">
+                      Password reset form with password and password
+                      confirmation.
+                    </div>
                   </div>
                 </div>
               </div>
@@ -341,11 +231,19 @@ function Dashboard() {
               <div class="card min-h-100">
                 <div class="card-body row gx-4">
                   <div class="col-auto">
-                    <BiDirections color="#24af5c" size={25}/>
+                    <BiDirections color="#24af5c" size={25} />
                   </div>
                   <div class="col">
-                    <a href="Pages.Authentication.ResetPassword.html" class="heading stretched-link d-block">Visitas de Campo</a>
-                    <div class="text-muted">Password reset form with password and password confirmation.</div>
+                    <a
+                      href="Pages.Authentication.ResetPassword.html"
+                      class="heading stretched-link d-block"
+                    >
+                      Visitas de Campo
+                    </a>
+                    <div class="text-muted">
+                      Password reset form with password and password
+                      confirmation.
+                    </div>
                   </div>
                 </div>
               </div>
@@ -354,11 +252,19 @@ function Dashboard() {
               <div class="card min-h-100">
                 <div class="card-body row gx-4">
                   <div class="col-auto">
-                    <BiChat color="#24af5c" size={25}/>
+                    <BiChat color="#24af5c" size={25} />
                   </div>
                   <div class="col">
-                    <a href="Pages.Authentication.ResetPassword.html" class="heading stretched-link d-block">Central de Comunicação</a>
-                    <div class="text-muted">Password reset form with password and password confirmation.</div>
+                    <a
+                      href="Pages.Authentication.ResetPassword.html"
+                      class="heading stretched-link d-block"
+                    >
+                      Central de Comunicação
+                    </a>
+                    <div class="text-muted">
+                      Password reset form with password and password
+                      confirmation.
+                    </div>
                   </div>
                 </div>
               </div>
@@ -367,11 +273,19 @@ function Dashboard() {
               <div class="card min-h-100">
                 <div class="card-body row gx-4">
                   <div class="col-auto">
-                    <BiUserPlus color="#24af5c" size={25}/>
+                    <BiUserPlus color="#24af5c" size={25} />
                   </div>
                   <div class="col">
-                    <a href="Pages.Authentication.ResetPassword.html" class="heading stretched-link d-block">Central do Administrador</a>
-                    <div class="text-muted">Password reset form with password and password confirmation.</div>
+                    <a
+                      href="Pages.Authentication.ResetPassword.html"
+                      class="heading stretched-link d-block"
+                    >
+                      Central do Administrador
+                    </a>
+                    <div class="text-muted">
+                      Password reset form with password and password
+                      confirmation.
+                    </div>
                   </div>
                 </div>
               </div>
@@ -384,11 +298,17 @@ function Dashboard() {
           <div class="container">
             <div class="row">
               <div class="col-12 col-sm-6">
-                <p class="mb-0 text-muted text-medium">Sistema de Gestão de Concessões - IDEFLOR BIO</p>
+                <p class="mb-0 text-muted text-medium">
+                  Sistema de Gestão de Concessões - IDEFLOR BIO
+                </p>
               </div>
               <div class="col-sm-6 d-none d-sm-block">
                 <ul class="breadcrumb pt-0 pe-0 mb-0 float-end">
-                  <li class="breadcrumb-item mb-0 text-medium"><a href="#" class="btn-link">Desenvolvimento: Educa Tecnologia</a></li>
+                  <li class="breadcrumb-item mb-0 text-medium">
+                    <a href="#" class="btn-link">
+                      Desenvolvimento: Educa Tecnologia
+                    </a>
+                  </li>
                 </ul>
               </div>
             </div>
@@ -396,7 +316,7 @@ function Dashboard() {
         </div>
       </footer>
     </div>
-  )
+  );
 }
 
 export default Dashboard;
