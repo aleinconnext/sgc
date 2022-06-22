@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
 import { useApp } from '../../context/AppContext';
 import Menu from "../../componentes/menu";
+import FilterComponent from "../../componentes/FilterComponent";
 import  { rsflorestas } from '../../data/dados';
 
 import DataTable, { createTheme } from 'react-data-table-component';
@@ -49,11 +50,13 @@ function Gflorestas() {
         name: 'UFMs Ativas',
         selector: row => row.umfsativas,
         sortable: true,
+        center: true,
     },
     {
         name: 'Área Total (ha)',
         selector: row => row.areatotal,
         sortable: true,
+        center: true,
     },
     {
         name: 'Ação',
