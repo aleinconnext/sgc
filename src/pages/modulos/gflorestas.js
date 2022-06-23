@@ -1,17 +1,25 @@
-import React, { useState, useEffect } from 'react';
-import { useNavigate } from "react-router-dom";
+import React, { useState, useEffect, useMemo } from 'react';
+import { useNavigate, Link } from "react-router-dom";
+import DataTableExtensions from "react-data-table-component-extensions";
+import "react-data-table-component-extensions/dist/index.css";
 import { useApp } from '../../context/AppContext';
 import Menu from "../../componentes/menu";
 import FilterComponent from "../../componentes/FilterComponent";
 import  { rsflorestas } from '../../data/dados';
 
+import {
+  BiSearchAlt,
+  BiRepeat
+} from "react-icons/bi";
+
 import DataTable, { createTheme } from 'react-data-table-component';
+import "../../assets/css/datatable.css";
 
 // createTheme creates a new theme named solarized that overrides the build in dark theme
 createTheme('solarized', {
   text: {
     primary: '#fff',
-    secondary: '#24af5c',
+    secondary: '#fff',
   },
   background: {
     default: '#242424',
@@ -80,6 +88,44 @@ function Gflorestas() {
     },
   ];
 
+  const data = rsflorestas;
+
+  const [filterText, setFilterText] = React.useState("");
+  const [resetPaginationToggle, setResetPaginationToggle] = React.useState(
+    false
+  );
+  // const filteredItems = data.filter(
+  //   item => item.name && item.name.includes(filterText)
+  // );
+  const filteredItems = rsflorestas.filter(
+    item =>
+      JSON.stringify(item)
+        .toLowerCase()
+        .indexOf(filterText.toLowerCase()) !== -1
+  );
+
+  const subHeaderComponent = useMemo(() => {
+    const handleClear = () => {
+      if (filterText) {
+        setResetPaginationToggle(!resetPaginationToggle);
+        setFilterText("");
+      }
+    };
+
+    return (
+      <FilterComponent
+        onFilter={e => setFilterText(e.target.value)}
+        onClear={handleClear}
+        filterText={filterText}
+      />
+    );
+  }, [filterText, resetPaginationToggle]);
+
+  const tableData = {
+    columns,
+    data
+  };
+
   return (
     <div id="root">
       <Menu />
@@ -93,8 +139,8 @@ function Gflorestas() {
                     <h1 className="mb-0 pb-0 display-4" id="title">Gestão de Florestas</h1>
                     <nav className="breadcrumb-container d-inline-block" aria-label="breadcrumb">
                       <ul className="breadcrumb pt-0">
-                        <li className="breadcrumb-item"><a href="/dashboard">Módulos</a></li>
-                        <li className="breadcrumb-item"><a href="#">Gestão de Florestas</a></li>
+                        <li className="breadcrumb-item"><a href="/modulos">Módulos</a></li>
+                        <li className="breadcrumb-item">Gestão de Florestas</li>
                       </ul>
                     </nav>
                   </div>
@@ -109,132 +155,101 @@ function Gflorestas() {
                 </div>
               </div>
 
-              {/* <div class="card mb-5">
-                <div class="card-body">
-                  <p class="mb-0">
-                    A javascript scrollbar plugin which hides native scrollbars, provides custom styleable overlay scrollbars. Also, webkit scrollbar
-                    overrides.
-                  </p>
-                </div>
-              </div> */}
+              <section class="scroll-section" id="personal">
+                  <h2 class="small-title">Pesquisa Avançada</h2>
+                  <form class="tooltip-end-top" id="personalForm">
+                    <div class="card mb-5">
+                      <div class="card-body">
+                        {/* <p class="text-alternate mb-4">
+                          Cheesecake chocolate carrot cake pie lollipop lemon drops toffee lollipop. Oat cake jujubes chupa chups cotton candy sugar plum.
+                          Jujubes wafer topping biscuit lemon drops jelly-o muffin.
+                        </p> */}
+                        <div class="row g-3">
+                          <div class="col-md-4">
+                            <label class="mb-3 top-label">
+                              <input class="form-control" name="nomefloresta" />
+                              <span>Nome da Floresta</span>
+                            </label>
+                          </div>
+                          <div class="col-md-4">
+                            <div class="mb-3 top-label">
+                              <select class="form-control" name="categoria" id="categoria">
+                                <option selected>Selecione</option>
+                                <option value="1">Categoria 1</option>
+                                <option value="2">Categoria 2</option>
+                                <option value="3">Categoria 3</option>
+                                <option value="4">Categoria 4</option>
+                                <option value="5">Categoria 5</option>
+                              </select>
+                              <span>Categoria</span>
+                            </div>
+                          </div>
+                          <div class="col-md-4">
+                            <div class="mb-3 top-label">
+                              <select class="form-control" name="personalFiling" id="personalFiling">
+                                <option selected>Selecione</option>
+                                <option value="Aveiro">Aveiro</option>
+                                <option value="Juruti">Juruti</option>
+                                <option value="Santarem">Santarém</option>
+                              </select>
+                              <span>Município</span>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row g-3">
+                          <div class="col-md-12 mb-3">
+                            Área total (ha)
+                          </div>
+                        </div>
+                        <div class="row g-3">
+                          <div class="col-md-6">
+                            <label class="mb-3 top-label">
+                              <input class="form-control" name="personalPhone" />
+                              <span>De</span>
+                            </label>
+                          </div>
+                          <div class="col-md-6">
+                            <label class="mb-3 top-label">
+                              <input class="form-control" name="personalEmail" />
+                              <span>Até</span>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="card-footer border-0 pt-0 d-flex justify-content-end align-items-center">
+                        <div class="mb-2">
+                          <button class="btn btn-icon btn-icon-end btn-info sp-5" type="reset">
+                            <BiRepeat color="#fff" size={20} class="icon"/>
+                            <span>Limpar</span>
+                          </button>
+                          <button class="btn btn-icon btn-icon-end btn-primary sp-5" type="submit">
+                            <BiSearchAlt color="#fff" size={20} class="icon"/>
+                            <span>Pesquisar</span>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                </section>
 
               <div class="card mb-5">
                 <div class="card-body">
-                <DataTable
-                  title="Florestas Cadastradas"
-                  columns={columns}
-                  data={rsflorestas}
-                  paginationPerPage={15}
-                  pagination
-                  highlightOnHover
-                  theme="solarized"
-                  //selectableRows
-                  //onSelectedRowsChange={handleChange}
-                />
-                </div>
-              </div>
-
-              <div className="data-table-boxed">
-                <div className="row mb-2">
-                  <div className="col-sm-12 col-md-5 col-lg-3 col-xxl-2 mb-1">
-                    <div className="d-inline-block float-md-start me-1 mb-1 search-input-container w-100 shadow bg-foreground">
-                      <input className="form-control datatable-search" placeholder="Search" data-datatable="#datatableBoxed" />
-                      <span className="search-magnifier-icon">
-                        <i data-cs-icon="search"></i>
-                      </span>
-                      <span className="search-delete-icon d-none">
-                        <i data-cs-icon="close"></i>
-                      </span>
-                    </div>
-                  </div>
-
-                  <div className="col-sm-12 col-md-7 col-lg-9 col-xxl-10 text-end mb-1">
-                    <div className="d-inline-block me-0 me-sm-3 float-start float-md-none">
-                      <button
-                        className="btn btn-icon btn-icon-only btn-foreground-alternate shadow add-datatable"
-                        data-bs-delay="0"
-                        data-bs-toggle="tooltip"
-                        data-bs-placement="top"
-                        title="Add"
-                        type="button"
-                      >
-                        <i data-cs-icon="plus"></i>
-                      </button>
-
-                      <button
-                        className="btn btn-icon btn-icon-only btn-foreground-alternate shadow edit-datatable disabled"
-                        data-bs-delay="0"
-                        data-bs-toggle="tooltip"
-                        data-bs-placement="top"
-                        title="Edit"
-                        type="button"
-                      >
-                        <i data-cs-icon="edit"></i>
-                      </button>
-
-                      <button
-                        className="btn btn-icon btn-icon-only btn-foreground-alternate shadow disabled delete-datatable"
-                        data-bs-delay="0"
-                        data-bs-toggle="tooltip"
-                        data-bs-placement="top"
-                        title="Delete"
-                        type="button"
-                      >
-                        <i data-cs-icon="bin"></i>
-                      </button>
-                    </div>
-                    <div className="d-inline-block">
-                      <button
-                        className="btn btn-icon btn-icon-only btn-foreground-alternate shadow datatable-print"
-                        data-bs-delay="0"
-                        data-datatable="#datatableBoxed"
-                        data-bs-toggle="tooltip"
-                        data-bs-placement="top"
-                        title="Print"
-                        type="button"
-                      >
-                        <i data-cs-icon="print"></i>
-                      </button>
-
-                      <div className="d-inline-block datatable-export" data-datatable="#datatableBoxed">
-                        <button className="btn p-0" data-bs-toggle="dropdown" type="button" data-bs-offset="0,3">
-                          <span
-                            className="btn btn-icon btn-icon-only btn-foreground-alternate shadow dropdown"
-                            data-bs-delay="0"
-                            data-bs-placement="top"
-                            data-bs-toggle="tooltip"
-                            title="Export"
-                          >
-                            <i data-cs-icon="download"></i>
-                          </span>
-                        </button>
-                        <div className="dropdown-menu shadow dropdown-menu-end">
-                          <button className="dropdown-item export-copy" type="button">Copy</button>
-                          <button className="dropdown-item export-excel" type="button">Excel</button>
-                          <button className="dropdown-item export-cvs" type="button">Cvs</button>
-                        </div>
-                      </div>
-
-                      <div className="dropdown-as-select d-inline-block datatable-length" data-datatable="#datatableBoxed" data-childSelector="span">
-                        <button className="btn p-0 shadow" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-bs-offset="0,3">
-                          <span
-                            className="btn btn-foreground-alternate dropdown-toggle"
-                            data-bs-toggle="tooltip"
-                            data-bs-placement="top"
-                            data-bs-delay="0"
-                            title="Item Count"
-                          >
-                            15 Items
-                          </span>
-                        </button>
-                        <div className="dropdown-menu shadow dropdown-menu-end">
-                          <a className="dropdown-item" href="#">10 Items</a>
-                          <a className="dropdown-item active" href="#">15 Items</a>
-                          <a className="dropdown-item" href="#">20 Items</a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                  <DataTableExtensions {...tableData}>
+                    <DataTable
+                      title="Florestas Cadastradas"
+                      columns={columns}
+                      data={rsflorestas}
+                      defaultSortFieldId={1}
+                      paginationPerPage={15}
+                      pagination
+                      // striped
+                      highlightOnHover
+                      theme="solarized"
+                      //selectableRows
+                      //onSelectedRowsChange={handleChange}
+                      //dense
+                    />
+                  </DataTableExtensions>
                 </div>
               </div>
             </div>

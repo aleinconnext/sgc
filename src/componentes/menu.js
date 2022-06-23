@@ -211,16 +211,16 @@ function Menu() {
           <div class="menu-container flex-grow-1">
             <ul id="menu" class="menu">
               <li>
-                <a href="#" data-href="Dashboards.html">
+                <Link to="/modulos">
                   <BiChip color="#fff" size={20} class="icon" />
-                  <span class="label">Dashboards</span>
-                </a>
+                  <span class="label">Dashboard</span>
+                </Link>
               </li>
               <li>
-                <a href="#apps" data-href="Apps.html">
+                <Link to="#" data-href="Apps.html">
                   <BiDesktop color="#fff" size={20} class="icon" />
                   <span class="label">Módulos</span>
-                </a>
+                </Link>
                 <ul id="apps">
                   <li>
                     <Link to="/gflorestas">

@@ -5,7 +5,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Load from './pages/load/Load';
 import NotFound from './pages/notfound';
 import Login from './pages/login';
-import Dashboard from './pages/dashboard';
+import Modulos from './pages/dashboard';
 
 // Modulos
 import GFlorestas from './pages/modulos/gflorestas';
@@ -28,7 +28,7 @@ function App() {
           {/* <Route path="/candidato"  element={<App />}/> */}
           {/* <Route path="/" element={<Login />}/> */}
           <Route exact path="/" element={loading == true ? (<Load />) : (<Login />)} />
-          <Route path="/dashboard" element={<Dashboard />}/>
+          <Route path="/modulos" element={<Modulos />}/>
           <Route path="/gflorestas" element={<GFlorestas />}/>
           <Route path="*" element={<NotFound />}/>
         </Routes>

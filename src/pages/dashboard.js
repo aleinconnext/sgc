@@ -64,10 +64,10 @@ function Dashboard() {
                 >
                   <ul class="breadcrumb pt-0">
                     <li class="breadcrumb-item">
-                      <a href="Dashboards.Default.html">Home</a>
+                      <a href="/modulos">Home</a>
                     </li>
                     <li class="breadcrumb-item">
-                      <a href="Pages.html">Módulos</a>
+                      Módulos
                     </li>
                   </ul>
                 </nav>

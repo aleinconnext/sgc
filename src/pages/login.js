@@ -38,7 +38,7 @@ function Login() {
       setLoading(false);
       if (logins[0].username.replace(/[^a-z0-9]/gi,'') === credentials.username.replace(/[^a-z0-9]/gi,'') && logins[0].password === credentials.password){
           // navigate('/dashboard');
-          window.location.href = "/dashboard";
+          window.location.href = "/modulos";
       } else {
           Swal.fire({
               icon: 'error',
