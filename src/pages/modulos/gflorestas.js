@@ -204,13 +204,13 @@ function Gflorestas() {
                         <div class="row g-3">
                           <div class="col-md-6">
                             <label class="mb-3 top-label">
-                              <input class="form-control" name="personalPhone" />
+                              <input class="form-control" name="de" />
                               <span>De</span>
                             </label>
                           </div>
                           <div class="col-md-6">
                             <label class="mb-3 top-label">
-                              <input class="form-control" name="personalEmail" />
+                              <input class="form-control" name="ate" />
                               <span>Até</span>
                             </label>
                           </div>
