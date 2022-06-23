@@ -242,4 +242,78 @@ const rsflorestas = [
     }
 ]
 
-export { logins, rsflorestas };
+const rsCategorias = [
+    {
+        idcategoria: 1,
+        nmcategoria: "Categoria 1",
+        volumecomercial: 0.76,
+        volumeinventario: 2.75724897700000,
+        especies: [
+            {
+                nomecientifico: "Cedrela odorata L.",
+                nomepopular: "Cedro"
+            },
+            {
+                nomecientifico: "Tabebuia serratifolia (Vahl) Nichols.",
+                nomepopular: "Ipê"
+            },
+            {
+                nomecientifico: "Tabebuia serratifolia (Vahl) Nichols.",
+                nomepopular: "Ipê-roxo"
+            },
+            {
+                nomecientifico: "Tabebuia sp",
+                nomepopular: "Ipê amarelo"
+            },
+            {
+                nomecientifico: "Tabebuia sp.",
+                nomepopular: "Ipê-roxo"
+            },
+        ]
+    },
+]
+
+const rsumf = [
+    {
+        idumf: 1,
+        nmumf: "UMF 1 - MAMURU",
+        status: "Concedido",
+        areatotal: 45721.33,
+        arealiquida: 43435.26,
+        situacao: 1
+    },
+    {
+        idumf: 2,
+        nmumf: "UMF 2 - MAMURU",
+        status: "Concedido",
+        areatotal: 19817.71,
+        arealiquida: 18826.82,
+        situacao: 1
+    },
+    {
+        idumf: 3,
+        nmumf: "UMF 3 - MAMURU",
+        status: "Concedido",
+        areatotal: 85417.91,
+        arealiquida: 81147.01,
+        situacao: 1
+    },
+    {
+        idumf: 4,
+        nmumf: "UMF 4 - MAMURU",
+        status: "Aguardando Concessão",
+        areatotal: 48799.91,
+        arealiquida: 43477.17,
+        situacao: 1
+    },
+    {
+        idumf: 5,
+        nmumf: "UMF 5 - MAMURU",
+        status: "Aguardando Concessão",
+        areatotal: 53668.27,
+        arealiquida: 47156.68,
+        situacao: 1
+    }
+]
+
+export { logins, rsflorestas, rsumf };

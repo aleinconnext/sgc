@@ -9,6 +9,7 @@ import Modulos from './pages/dashboard';
 
 // Modulos
 import GFlorestas from './pages/modulos/gflorestas';
+import Umf from './pages/modulos/submodulos/umf';
 
 function App() {
   const [loading, setLoading] = useState(false);
@@ -30,6 +31,7 @@ function App() {
           <Route exact path="/" element={loading == true ? (<Load />) : (<Login />)} />
           <Route path="/modulos" element={<Modulos />}/>
           <Route path="/gflorestas" element={<GFlorestas />}/>
+          <Route path="/gerenciarumfs" element={<Umf />}/>
           <Route path="*" element={<NotFound />}/>
         </Routes>
       </BrowserRouter>
